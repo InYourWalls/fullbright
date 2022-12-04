@@ -1,0 +1,42 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "net.inyourwalls",
+		"id": "fullbright",
+		"version": "${version}",
+		"metadata": {
+			"name": "Fullbright",
+			"description": "A simple fullbright mod.",
+			"contributors": {
+				"InYourWalls": "Owner"
+			},
+			"contact": {
+				"issues": "https://github.com/InYourWalls/fullbright/issues",
+				"sources": "https://github.com/InYourWalls/fullbright"
+			},
+			"icon": "assets/fullbright/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"client_init": "net.inyourwalls.fullbright.FullbrightMod"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.17.0-"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=4.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.19.2"
+			}
+		]
+	},
+	"mixin": "fullbright.mixins.json",
+	"minecraft": {
+		"environment": "client"
+	}
+}

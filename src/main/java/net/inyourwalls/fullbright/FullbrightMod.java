@@ -5,7 +5,9 @@ package net.inyourwalls.fullbright;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.inyourwalls.fullbright.mixin.ForceSetAccessor;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
@@ -36,13 +38,21 @@ public class FullbrightMod implements ClientModInitializer {
 				if (enabled) {
 					// Restore gamma.
 					client.options.gamma().set(previousGamma);
-					enabled = false;
+					client.player.sendSystemMessage(
+							Component.translatable("fullbright.message.toggle_off")
+									.withStyle(ChatFormatting.RED)
+					);
 				} else {
 					// Forcibly set the gamma beyond the game limits, making it very bright.
 					previousGamma = client.options.gamma().get();
 					((ForceSetAccessor)(Object) client.options.gamma()).forceSet(100.0);
-					enabled = true;
+					client.player.sendSystemMessage(
+							Component.translatable("fullbright.message.toggle_on")
+									.withStyle(ChatFormatting.GREEN)
+					);
 				}
+
+				enabled = !enabled;
 			}
 		});
 

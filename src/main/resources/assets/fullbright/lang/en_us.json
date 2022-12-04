@@ -1,4 +1,6 @@
 {
   "fullbright.key": "Toggle Fullbright",
-  "fullbright.category": "Fullbright Mod"
+  "fullbright.category": "Fullbright Mod",
+  "fullbright.message.toggle_on": "Toggled fullbright on.",
+  "fullbright.message.toggle_off": "Toggled fullbright off."
 }

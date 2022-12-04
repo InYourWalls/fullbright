@@ -1,5 +1,4 @@
 # fullbright
-Simple fullbright mod for Quilt.
+Stupid simple fullbright mod for Quilt.
 
-## Usage
-Press the hotkey, fullbright is turned on (your gamma is cranked). Press it again, it reverts to the original brightness.
+It's terrible, don't use it.

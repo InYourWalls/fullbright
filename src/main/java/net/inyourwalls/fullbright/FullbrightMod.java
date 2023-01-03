@@ -34,7 +34,7 @@ public class FullbrightMod implements ClientModInitializer {
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 		ClientTickEvents.END.register(client -> {
-			if (FULLBRIGHT_KEY.isDown()) {
+			if (FULLBRIGHT_KEY.consumeClick()) {
 				if (enabled) {
 					// Restore gamma.
 					client.options.gamma().set(previousGamma);
